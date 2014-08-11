@@ -21,4 +21,25 @@ class HomeController extends BaseController {
 		return View::make('public.home',['abc'=>$abc]);
 	}
 
+	public function theme()
+	{
+		return View::make('public.theme');
+	}
+
+	public function plans()
+	{
+		return View::make('public.plans');
+	}
+
+	public function art()
+	{
+		return View::make('public.art');
+	}
+
+	public function abcBook()
+	{
+		$abc = abc::paginate(30);
+		return View::make('public.abcBook',['abc'=>$abc]);
+	}
+
 }

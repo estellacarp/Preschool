@@ -7,6 +7,6 @@
 @stop
 
 @section('content')
-
+<h1>Themes</h1>
 		
 @stop

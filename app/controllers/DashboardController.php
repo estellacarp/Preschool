@@ -1,5 +1,5 @@
 <?php
-use Repository\formInterface;
+use Repository\formInput;
 
 class DashboardController extends \BaseController {
 
@@ -9,7 +9,7 @@ class DashboardController extends \BaseController {
 
 	protected $abc;
 
-	public function __construct(formInterface $abc){
+	public function __construct(formInput $abc){
 		$this->abc = $abc;
 
 	}
@@ -20,10 +20,23 @@ class DashboardController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
+
+	{	
+
 		return View::make('dashboard.index', array('name'=>'Estella'));
 	}
 
+
+	public function editPage()
+	{
+		return View::make('dashboard.editPage');
+	}
+
+	public function editPageShow($Title)
+	{
+		$abc = abc::findOrFail($Title);
+		return View::make('dashboard.editPage', ['abc'=>$abc]);
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /dashboard/create
@@ -43,8 +56,8 @@ class DashboardController extends \BaseController {
 	 */
 	public function store()
 	{
-		$abc=$this->abc->inData();
-		return Redirect::to('dashboard');
+			$abc=$this->abc->inData();
+			return View::make('dashboard.index', array('name'=>'Estella'));	
 	}
 
 	/**
@@ -68,7 +81,7 @@ class DashboardController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		
 	}
 
 	/**
@@ -80,7 +93,8 @@ class DashboardController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$abc=$this->abc->upData($id);
+		return View::make('public.abcBook', array('name'=>'Estella'));
 	}
 
 	/**
