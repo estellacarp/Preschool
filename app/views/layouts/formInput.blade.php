@@ -13,6 +13,16 @@
 {{$errors->first('Description')}}
 </div>
 
+<div class ='form-group'>
+{{Form::label('Letter','Letter:')}}
+{{Form::text('Letter', null, ['class' => 'form-control'])}}
+</div>
+
+<div class ='form-group'>
+{{Form::label('Theme','Theme:')}}
+{{Form::text('Theme', null, ['class' => 'form-control'])}}
+</div>
+
 
 <div class ='form-group'>
 {{Form::label('ImageBig','Image Upload:')}}

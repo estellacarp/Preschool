@@ -20,16 +20,16 @@ class DashboardController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-
 	{	
-
-		return View::make('dashboard.index', array('name'=>'Estella'));
+			$abc = abc::paginate(30);
+		return View::make('dashboard.index',['abc'=>$abc], array('name'=>'Estella'));
 	}
 
 
-	public function editPage()
+	public function editPage($id)
 	{
-		return View::make('dashboard.editPage');
+		$abc = abc::find($id);
+		return View::make('dashboard.editPage', ['abc'=>$abc], array('name'=>'Estella'));
 	}
 
 	public function editPageShow($Title)
@@ -57,8 +57,8 @@ class DashboardController extends \BaseController {
 	public function store()
 	{
 			$abc=$this->abc->inData();
-			return View::make('dashboard.index', array('name'=>'Estella'));	
-	}
+			return Redirect::to('dashboard');
+		}
 
 	/**
 	 * Display the specified resource.
@@ -94,7 +94,7 @@ class DashboardController extends \BaseController {
 	public function update($id)
 	{
 		$abc=$this->abc->upData($id);
-		return View::make('public.abcBook', array('name'=>'Estella'));
+		return Redirect:: to('dashboard');
 	}
 
 	/**

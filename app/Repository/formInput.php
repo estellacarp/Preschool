@@ -21,7 +21,8 @@ class formInput implements formInterface{
 			$abc = new abc;
 			$abc->Title = Input::get('Title');
 			$abc->Desc = Input::get('Desc');
-			
+			$abc->Letter = Input::get('Letter');
+			$abc->Theme = Input::get('Theme');
 
 			if (Input::hasFile('ImageBig')) {
 
@@ -62,9 +63,10 @@ class formInput implements formInterface{
 	public function UpData($id){
 
 		$abc = abc::find($id);
-			$abc->Title = Input::get('Title');
-			$abc->Desc = Input::get('Desc');
-			
+			$abc->Title  = Input::get('Title');
+			$abc->Desc   = Input::get('Desc');
+			$abc->Letter = Input::get('Letter');
+			$abc->Theme  = Input::get('Theme');
 
 			if (Input::hasFile('ImageBig')) {
 

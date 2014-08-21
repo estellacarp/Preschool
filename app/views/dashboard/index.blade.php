@@ -8,10 +8,30 @@
 
 @section('content')
 <p>Hello, {{ $name }}</p>
-<h1>Themes</h1>
-<h2>Lesson Plans</h2>
-<h2>Art Activites</h2>
-<h2>Book Activites</h2>
-<h2>Songs</h2>
+
+
+<div class="container-fluid">
+<div class="row">
+	@if (isset($abc))
+		@foreach($abc as $abcInfo)
+			
+			<div class="col-md-4">
+				<article>
+				<h1>{{$abcInfo->Title}}</h1>
+				<h1>{{$abcInfo->Desc}}</h1>
+				<img src="{{'asset/image/'.$abcInfo->Image.'.jpg'}}">
+				<!-- <img src="{{'asset/image/'.$abcInfo->ImageBig.'.jpg'}}"> -->
+				{{ link_to("editPage/$abcInfo->id", 'Edit')}}
+
+				</article>
+				
+			</div>
+		@endforeach
+	@else
+		<p>Nothing Here</p>
+	@endif
+</div>
+</div>
+
 
 @stop

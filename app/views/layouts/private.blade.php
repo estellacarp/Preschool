@@ -2,13 +2,22 @@
 <html>
 	<head>
 		<title>Private</title>
+			<link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css')}}">
+			<link rel="stylesheet" href="{{ asset('asset/css/style.css')}}">
+			@yield('css')
 	</head>
 	<body>
-	<h4><a href="{{ URL::to('home') }}">HOME</a>
-	<a href="{{ URL::to('create') }}">CREATE</a>
-	<a href="{{ URL::to('dashboard') }}">DASHBOARD</a>
-
-	</h4>
-		@yield('content')
+		<img src="asset/image/flyaway.jpg" height="200px">
+			<div >
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="active"><a href="{{ URL::to('home') }}">HOME</a></li>
+					<li>	<a href="{{ URL::to('create') }}">CREATE</a></li>
+					<li>	<a href="{{ URL::to('dashboard') }}">DASHBOARD</a></li>
+					<li>	<a href="{{ URL::to('editPage') }}">Edit</a></li>
+				</ul>
+			</div>
+			<div class ="content">	
+			@yield('content')
+			</div>
 	</body>
 </html>
